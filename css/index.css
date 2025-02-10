@@ -1,0 +1,38 @@
+html, body { 
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-color: black;
+    position: fixed;
+}
+
+body {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.header { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.searching-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#searchBox {
+    width: 90vw;
+    max-width: 800px;
+    min-height: auto;
+    height: 30px;
+    padding: 2px 5px; /* Giảm padding tối thiểu */
+    font-size: 14px;
+    line-height: 20px; /* Giữ dòng chữ không quá lớn */
+    border: 1px solid white; /* Nếu muốn giữ viền */
+}
