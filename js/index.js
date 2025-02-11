@@ -1,18 +1,4 @@
-function handleKeyPress(event) {
-    if (event.keyCode === 13) {
-        redirectToSearch();
-    }
-}
-
-function adjustHeight(element) {
-    element.style.height = "auto"; // Đặt lại auto để tính đúng chiều cao nội dung
-    let newHeight = element.scrollHeight; // Lấy chiều cao thực sự của nội dung
-    let minHeight = 40; // Chiều cao tối thiểu (tùy chỉnh theo thiết kế)
-    
-    // Chỉ tăng chiều cao khi nội dung thực sự cần
-    element.style.height = Math.max(newHeight, minHeight) + "px";
-}
-
+let i = 1;
 
 function handleKeyPress(event) {
     if (event.key === "Enter") {
@@ -20,6 +6,15 @@ function handleKeyPress(event) {
         redirectToSearch(); // Gọi hàm xử lý tìm kiếm
     }
 }
+
+function adjustHeight(el) {
+    el.style.height = "20px"; // Reset height để tính lại kích thước thực  
+    if (el.scrollHeight > el.clientHeight) {
+        el.style.height = el.scrollHeight - 20 + "px"; // Mở rộng khi nội dung vượt quá kích thước hiện tại
+    }
+}
+
+
 
 function redirectToSearch() {
     let query = document.getElementById("searchBox").value;

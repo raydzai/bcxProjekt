@@ -2,8 +2,13 @@ html, body {
     width: 100%;
     height: 100%;
     margin: 0;
-    background-color: black;
+    background-color: rgb(0, 0, 0);
     position: fixed;
+}
+
+@font-face {
+    font-family: 'ProductSans';
+    src: url(../media/font/text.otf);
 }
 
 body {
@@ -27,12 +32,66 @@ body {
 }
 
 #searchBox {
-    width: 90vw;
+    font-family: 'ProductSans';
+    margin: 1vw;
+    width: 50vw;
     max-width: 800px;
-    min-height: auto;
-    height: 30px;
-    padding: 2px 5px; /* Giảm padding tối thiểu */
+    height: 20px;
+    padding: 12px;
     font-size: 14px;
-    line-height: 20px; /* Giữ dòng chữ không quá lớn */
-    border: 1px solid white; /* Nếu muốn giữ viền */
+    line-height: 20px;
+    overflow-y: hidden;
+    resize: none;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.blob-outer-container {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: -2;
+    inset: 0;
+    margin: auto;
+    filter: blur(100px);
+    /*opacity: 0.5;*/
+}
+
+.blob-inner-container {
+    border-radius: 99999px;
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 100vw;
+    height: 100vh;
+    min-width: 1000px;
+    overflow: hidden;
+    background-color: #fff;
+    transform: scale(0.8);
+}
+
+.blob {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    inset: 0;
+    margin: auto;
+    background: conic-gradient(from 0deg, #0f3057, #005f73, #2b6777, #774936, #5c3d2e, #3e2723);
+
+
+    animation: spinBlob 8s linear infinite;
+}
+
+@keyframes spinBlob {
+    0% {
+        transform: rotate(0deg) scale(2);
+    }
+
+    100% {
+        transform: rotate(1turn) scale(2);
+    }
 }
