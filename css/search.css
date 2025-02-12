@@ -1,0 +1,323 @@
+body {
+    font-family: 'ProductSans', sans-serif;
+    background-color: #121212;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'ProductSans';
+    src: url(../media/font/text.otf);
+}
+
+header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 20px 0;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    height: 30px;
+}
+
+#searchBox {
+    font-family: 'ProductSans';
+    color: white;
+    margin: 1vw;
+    width: 50vw;
+    max-width: 800px;
+    height: 20px;
+    padding: 12px;
+    font-size: 20px;
+    line-height: 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    overflow-y: hidden;
+    resize: none;
+}
+
+#searchForm {
+    position: relative; /* Add relative positioning to the form */
+}
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.search-tabs {
+    display: flex;
+    gap: 20px;
+    margin-left: 170px;
+    padding-left: 15px;
+}
+
+.search-tab {
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 0;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    background: none;
+    border: none;
+    outline: none;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.search-tab.active {
+    color: #0f741c;
+}
+
+.search-tab::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #0f741c;
+    transition: width 0.3s ease-in-out;
+    margin-top: 3px;
+}
+
+.search-tab.active::after {
+    width: 100%;
+}
+
+#results {
+    max-width: 800px;
+    margin: 0px 0px 20px 170px;
+}
+
+.result-item {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #444;
+}
+
+.result-item a {
+    color: darkgreen;
+    font-size: 20px;
+    font-weight: 510;
+    text-decoration: none;
+}
+
+.result-item a:hover {
+    text-decoration: underline;
+}
+
+.result-item p {
+    font-size: 16px;
+    color: #bbb;
+}
+
+.result-preview {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.preview-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.result-text {
+    flex-grow: 1;
+}
+
+.google-pagination {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 24px;
+    margin-bottom: 20px; /* Add margin to separate pagination from the footer */
+}
+
+.google-pagination .o {
+    color: #4285F4;
+}
+
+.page-numbers {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.page-link {
+    cursor: pointer;
+    font-size: 18px;
+    padding: 5px 10px;
+    color: white;
+}
+
+.page-link.active {
+    font-weight: bold;
+    color: darkgreen;
+}
+
+.next-btn {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 18px;
+    color: #1a0dab;
+    cursor: pointer;
+}
+
+hr {
+    display: none !important;
+}
+
+footer {
+    background-color: #1a1a1a;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    position: relative; /* Change position to relative */
+    bottom: 0;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer-content a {
+    color: #0f741c;
+    text-decoration: none;
+}
+
+.footer-content a:hover {
+    text-decoration: underline;
+}
+
+main {
+    padding-bottom: 30px; 
+    /* Add padding to ensure content doesn't overlap with the footer */
+}
+
+#suggestion-box {
+    font-family: 'ProductSans';
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 51.5vw; /* Adjust width to match the search box */
+    background: rgba(48, 77, 22, 0.16);
+    border-radius: 10px;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: calc(100% + 5px); /* Position it just below the search box */
+    left: 0;
+    z-index: 100;
+    transform: translateX(1vw) translateY(-15px); 
+}
+
+#suggestion-box li {
+    padding: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#suggestion-box li:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.point-container {
+    position: fixed;
+    top: 25px;
+    right: 20px;
+    background: rgb(27, 83, 25);
+    padding: 10px 15px;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    width: auto;
+    min-width: 60px;
+    max-width: 60px;
+    height: 50px;
+    white-space: nowrap;
+}
+
+.point-container:hover {
+    max-width: 350px;
+    height: auto;
+    padding: 15px;
+}
+
+.point-details {
+    display: none;
+    font-size: 16px;
+    margin-left: 10px;
+    text-align: left;
+}
+
+.point-container:hover .point-details {
+    display: block;
+}
+
+#floatingPoint {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    opacity: 0;
+    transition: transform 0.6s ease-out, opacity 0.6s;
+}
+
+@keyframes pointIncrease {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.4); }
+    100% { transform: scale(1); }
+}
+
+.animated-point {
+    animation: pointIncrease 0.3s ease-in-out;
+}
+
+#convertButton {
+    background-color: #0f741c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+#convertButton:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}

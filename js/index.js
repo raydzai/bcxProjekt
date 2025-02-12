@@ -23,3 +23,47 @@ function redirectToSearch() {
     }
 }
 
+function showSuggestions(suggestions) {
+    let suggestionBox = document.getElementById("suggestion-box");
+    suggestionBox.innerHTML = ""; // Xóa gợi ý cũ
+
+    suggestions.forEach(suggestion => {
+        let li = document.createElement("li");
+        li.textContent = suggestion;
+        li.onclick = () => {
+            document.getElementById("searchBox").value = suggestion;
+            suggestionBox.innerHTML = ""; // Ẩn gợi ý khi chọn
+            redirectToSearch(); // Chuyển hướng đến trang tìm kiếm ngay sau khi chọn gợi ý
+        };
+        suggestionBox.appendChild(li);
+    });
+}
+
+function handleInput() {
+    let query = document.getElementById("searchBox").value.trim();
+    let suggestionsContainer = document.getElementById("suggestion-box");
+
+    if (query === "") {
+        suggestionsContainer.innerHTML = "";
+        return;
+    }
+
+    let url = `http://localhost:3000/suggest?q=${encodeURIComponent(query)}`;
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            let suggestions = data[1];
+            showSuggestions(suggestions);
+        })
+        .catch(error => console.error("Lỗi khi lấy gợi ý:", error));
+}
+
+
+document.addEventListener("click", function (event) {
+    let suggestionBox = document.getElementById("suggestion-box");
+    if (!suggestionBox.contains(event.target) && event.target !== document.getElementById("searchBox")) {
+        suggestionBox.innerHTML = ""; // Xóa danh sách gợi ý khi click ra ngoài
+    }
+});
+

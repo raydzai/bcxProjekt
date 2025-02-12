@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bước Chân Xanh</title>
+    <title>bước chân xanh.</title>
     <link rel="stylesheet" href="../css/index.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../media/favicon/favicon-32.png" crossorigin="anonymous">
 </head>
 
 <body>
+    <div class="background"></div>
     <div class="overlay">
         <div class="blob-outer-container">
             <div class="blob-inner-container">
@@ -20,7 +22,8 @@
         <img src="../media/bcxLogo.png" width="75%">
     </div>
     <div class="searching-container">
-        <textarea id="searchBox" placeholder="Tìm kiếm..." oninput="adjustHeight(this)" onkeypress="handleKeyPress(event)"></textarea>
+        <textarea id="searchBox" placeholder="Tìm kiếm..." oninput="handleInput()" onkeypress="handleKeyPress(event)"></textarea>
+        <ul id="suggestion-box"></ul>
     </div>
 
     <script src="../js/index.js"></script>

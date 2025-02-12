@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kết quả tìm kiếm</title>
+    <link rel="stylesheet" href="../css/search.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../media/favicon/favicon-32.png" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="../media/bcxLogo.png" alt="Bước Chân Xanh" class="logo">
+            </a>
+            <form id="searchForm">
+                <input type="text" id="searchBox" value="" autofocus onkeydown="handleEnter(event)" oninput="handleInput()">
+                <ul id="suggestion-box"></ul>
+            </form>
+        </div>
+        <div class="point-container">
+            <span id="floatingPoint"></span>
+            <span id="pointDisplay">7</span> 🌱
+            <div class="point-details">
+                <p>Số 🌳 bạn đã trồng: <span id="treeCount">3</span></p>
+                <p>Bạn có muốn đổi 10 🌱 để trồng 1 🌳?</p>
+                <button id="convertButton" onclick="convertPoints()">Đổi</button>
+            </div>
+        </div>
+        
+        
+    </header>
+    
+    
+    <nav class="search-tabs">
+        <span class="search-tab active" data-type="web">Tất cả</span>
+        <span class="search-tab" data-type="image">Hình ảnh</span>
+        <span class="search-tab" data-type="video">Video</span>
+    </nav>
+    
+    <main>
+        <div id="results"></div>
+    </main>
+    
+    <script src="../js/search.js"></script>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Bước Chân Xanh. All rights reserved.</p>
+            <p>Contact us: <a href="mailto:info@buocchanxanh.com">info@buocchanxanh.com</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
